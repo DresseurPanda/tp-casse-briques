@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://dl5dq8s808gx6"]
+
+[ext_resource type="Texture2D" uid="uid://c0ffav7vtk5gf" path="res://Brick/skins/skin_brick_u.tres" id="1_wurha"]
+[ext_resource type="Script" uid="uid://cg7ldi1rl64n3" path="res://Brick/control_brick.gd" id="2_t5b8g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_48p5r"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wurha"]
+size = Vector2(32, 16)
+
+[sub_resource type="Animation" id="Animation_t5b8g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.5, 2.5)]
+}
+
+[sub_resource type="Animation" id="Animation_0jn20"]
+resource_name = "destruction"
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2.5, 2.5), Vector2(2.8, 2.8), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u4bkj"]
+_data = {
+&"RESET": SubResource("Animation_t5b8g"),
+&"destruction": SubResource("Animation_0jn20")
+}
+
+[node name="Brick" type="StaticBody2D" unique_id=703092963 groups=["brique"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1528341603]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_wurha")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=278961951]
+scale = Vector2(2.5, 2.5)
+shape = SubResource("RectangleShape2D_48p5r")
+
+[node name="ZoneDetection" type="Area2D" parent="." unique_id=1738163477]
+script = ExtResource("2_t5b8g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneDetection" unique_id=670022444]
+scale = Vector2(2.5, 2.5)
+shape = SubResource("RectangleShape2D_wurha")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1726870961]
+libraries/ = SubResource("AnimationLibrary_u4bkj")
+
+[connection signal="body_entered" from="ZoneDetection" to="ZoneDetection" method="_on_body_entered"]

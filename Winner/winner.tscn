@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://xl18657j44m4"]
+
+[ext_resource type="Script" uid="uid://jkp6gcw6a2d5" path="res://Winner/rejouer.gd" id="1_onllj"]
+[ext_resource type="AudioStream" uid="uid://d34l53jqu0env" path="res://Winner/sfx_sounds_fanfare1.wav" id="2_fafbf"]
+[ext_resource type="AudioStream" uid="uid://dayiv017d3r1w" path="res://Winner/Juhani Junkala [Retro Game Music Pack] Ending.wav" id="3_l2bue"]
+
+[node name="Winner" type="Control" unique_id=1122146526]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_onllj")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2083589047]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1317356995]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.5
+offset_top = -17.0
+offset_right = 66.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "You win !"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="." unique_id=1525068500]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = 27.0
+offset_right = 47.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 23
+text = "Rejouer"
+
+[node name="MusiqueFin" type="AudioStreamPlayer" parent="." unique_id=158319927]
+stream = ExtResource("3_l2bue")
+
+[node name="SonResultat" type="AudioStreamPlayer2D" parent="." unique_id=697778502]
+stream = ExtResource("2_fafbf")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

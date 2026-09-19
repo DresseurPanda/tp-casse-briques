@@ -1,12 +1,30 @@
 [gd_scene format=3 uid="uid://do5gsbjv7ugl7"]
 
-[node name="Node2D" type="Node2D" unique_id=1534309156]
-position = Vector2(553, 289)
+[ext_resource type="PackedScene" uid="uid://b8gdrejq8m5an" path="res://Raquette/raquette.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://c0a1ihoeat7nq" path="res://Murs/murs.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://do72u7vjlw4mt" path="res://Balle/balle.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://c2sj5br7nbyv0" path="res://Fosse/fosse.tscn" id="4_lquwl"]
+[ext_resource type="Script" uid="uid://cqevd0ruqtc7m" path="res://Brick/generation_brick.gd" id="5_lquwl"]
+[ext_resource type="AudioStream" uid="uid://dynfc2lg3oulh" path="res://Juhani Junkala [Retro Game Music Pack] Level 1.wav" id="6_7mycd"]
 
-[node name="Hello" type="Label" parent="." unique_id=1485635059]
-offset_left = 8.0
-offset_top = 9.0
-offset_right = 48.0
-offset_bottom = 32.0
-text = "Hello"
-metadata/_edit_use_anchors_ = true
+[node name="Node2D" type="Node2D" unique_id=1361499384]
+
+[node name="raquette" parent="." unique_id=1415224391 instance=ExtResource("1_ig7tw")]
+position = Vector2(587, 576)
+
+[node name="balle" parent="." unique_id=451804082 instance=ExtResource("4_1bvp3")]
+position = Vector2(586, 482)
+
+[node name="Mur" parent="." unique_id=509933390 instance=ExtResource("3_h2yge")]
+
+[node name="Fosse" parent="." unique_id=1125557167 instance=ExtResource("4_lquwl")]
+
+[node name="bricks" type="Node2D" parent="." unique_id=209657585]
+script = ExtResource("5_lquwl")
+marge_x = 30.0
+marge_y = 35.0
+
+[node name="Musique" type="AudioStreamPlayer" parent="." unique_id=1374370148]
+stream = ExtResource("6_7mycd")
+volume_db = -10.0
+autoplay = true

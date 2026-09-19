@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://daffeneyb1iau"]
+
+[ext_resource type="Script" uid="uid://dj38kuej7dryx" path="res://GameOver/rejouer.gd" id="1_g2khx"]
+[ext_resource type="AudioStream" uid="uid://uj5ht4ablhdx" path="res://GameOver/sfx_deathscream_android7.wav" id="2_dyh6w"]
+[ext_resource type="AudioStream" uid="uid://coah18g3lvhqx" path="res://GameOver/Juhani Junkala [Retro Game Music Pack] Title Screen.wav" id="2_mpypm"]
+
+[node name="Game Over" type="Control" unique_id=1122146526]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g2khx")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2083589047]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1317356995]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "You loose !"
+
+[node name="Button" type="Button" parent="." unique_id=1525068500]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.56635803
+anchor_right = 0.5
+anchor_bottom = 0.56635803
+offset_left = -34.0
+offset_top = -15.5
+offset_right = 34.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Rejouer"
+
+[node name="MusiqueFin" type="AudioStreamPlayer" parent="." unique_id=1194417337]
+stream = ExtResource("2_mpypm")
+
+[node name="SonResultat" type="AudioStreamPlayer2D" parent="." unique_id=639542728]
+stream = ExtResource("2_dyh6w")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

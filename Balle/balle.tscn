@@ -1,0 +1,83 @@
+[gd_scene format=4 uid="uid://do72u7vjlw4mt"]
+
+[ext_resource type="Texture2D" uid="uid://bix1thxahkdvb" path="res://Balle/skin_balle.tres" id="1_a6vi8"]
+[ext_resource type="Script" uid="uid://ok13b8r1k3qa" path="res://Balle/control_balle.gd" id="1_ek2sj"]
+[ext_resource type="AudioStream" uid="uid://bouui2qvwwiog" path="res://Balle/sfx_sounds_Blip1.wav" id="3_2trkb"]
+[ext_resource type="AudioStream" uid="uid://72enu3ac12tx" path="res://Balle/sfx_exp_short_hard12.wav" id="4_mk15o"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a1ksc"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a1ksc"]
+radius = 5.0
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_jfkcn"]
+data = PackedByteArray("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")
+format = 3
+
+[sub_resource type="Animation" id="Animation_2trkb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_mk15o"]
+resource_name = "pulse"
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(4, 4), Vector2(3, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jfkcn"]
+_data = {
+&"RESET": SubResource("Animation_2trkb"),
+&"pulse": SubResource("Animation_mk15o")
+}
+
+[node name="balle" type="RigidBody2D" unique_id=451804082 groups=["balle"]]
+physics_material_override = SubResource("PhysicsMaterial_a1ksc")
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 4
+script = ExtResource("1_ek2sj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1059225269]
+scale = Vector2(3, 3)
+texture = ExtResource("1_a6vi8")
+
+[node name="hitbox balle" type="CollisionShape2D" parent="." unique_id=1834056080]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_a1ksc")
+
+[node name="SonRaquette" type="AudioStreamPlayer2D" parent="." unique_id=1519004929]
+stream = ExtResource("3_2trkb")
+
+[node name="SonMur" type="AudioStreamPlayer2D" parent="." unique_id=375508637]
+stream = SubResource("AudioStreamWAV_jfkcn")
+
+[node name="SonBrique" type="AudioStreamPlayer2D" parent="." unique_id=1618431313]
+stream = ExtResource("4_mk15o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1380830839]
+libraries/ = SubResource("AnimationLibrary_jfkcn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

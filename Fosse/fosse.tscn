@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c2sj5br7nbyv0"]
+
+[ext_resource type="Script" uid="uid://7bt3xh47tg5s" path="res://Fosse/control_fosse.gd" id="1_cr43v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88ots"]
+size = Vector2(1161, 20)
+
+[node name="Fosse" type="Area2D" unique_id=1125557167]
+script = ExtResource("1_cr43v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1902217191]
+position = Vector2(579.5, 648)
+shape = SubResource("RectangleShape2D_88ots")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
