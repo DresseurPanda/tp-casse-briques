@@ -4,7 +4,7 @@ extends Node2D
 const BRIQUE_SCENE := preload("res://Brick/brick.tscn")
 
 # Nombre de rangées de briques à générer
-@export var lignes: int = 1
+@export var lignes: int = 5
 
 # Espace horizontal entre deux briques côte à côte
 @export var marge_x: float = 20.0
